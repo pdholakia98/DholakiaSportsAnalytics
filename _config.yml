@@ -39,7 +39,7 @@ baseurl: "parthdholakia.com" # the subpath of your site, e.g. "/blog".
 # Github and twitter are optional:
 minima:
   social_links:
-    twitter: "ParthDholakia5"
+#    twitter: "ParthDholakia5"
     github: 
 
 # Set this to true to get LaTeX math equation support
