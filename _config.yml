@@ -6,8 +6,8 @@
 # https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
 # https://learnxinyminutes.com/docs/yaml/
 
-title: Sports Analytics with Parth Dholakia
-description: This blog is an experiment to learn data science and explore sports through the lense of data and analytics. 
+title: Chart the Process
+description: This blog is an endeavor to answer the questions around our favorite athletes. Do their numbers match up to their efforts?  
 github_username: pdholakia98
 # you can comment the below line out if your repo name is not different than your baseurl
 github_repo: "DholakiaSportsAnalytics"
