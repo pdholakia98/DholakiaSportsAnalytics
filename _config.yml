@@ -38,7 +38,7 @@ baseurl: "" # the subpath of your site, e.g. "/blog".
 
 # Github and twitter are optional:
 minima:
-  social_links: dholakia.parth.p@gmail.com
+  social_links:
     twitter: "ParthDholakia5"
     github: 
 
