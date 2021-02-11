@@ -87,7 +87,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      4 min read
+      3 min read
     
 </span></p>
 
@@ -137,110 +137,6 @@ window.onload = wrap_img;
 
 <div class="container" id="notebook-container">
         
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Toronto: Auston Matthews and John Tavares - $22.6M</span>
-<span class="c1">#Edmonton: Conor McDavid and Leon Draisaitl - $21M</span>
-<span class="c1">#Chicago: Jon Toews and Patrick Kane - $21M</span>
-<span class="c1">#Los Angeles Kings: Drew Doughty and Anze Kopitar - $21M</span>
-<span class="c1">#Islanders (I think): Panarin and Trouba - $19.6M</span>
-<span class="c1">#@NHLbenchside and @talkinghockey</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    
-
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">NHL2021GoalsAverage</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">NHL2021BaseStats</span><span class="p">[</span><span class="s2">&quot;G&quot;</span><span class="p">])</span>
-<span class="n">NHL2021AssistsAverage</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">NHL2021BaseStats</span><span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">])</span>
-<span class="n">NHL2022PlusMinusAverage</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">NHL2021BaseStats</span><span class="p">[</span><span class="s2">&quot;+/-&quot;</span><span class="p">])</span>
-<span class="n">NHL2021PointSharesAverage</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">NHL2021BaseStats</span><span class="p">[</span><span class="s2">&quot;PS&quot;</span><span class="p">])</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    
-
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">NHL2022PlusMinusAverage</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>-0.06275033377837116
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-    
-
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">NHL2021PointSharesAverage</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>0.4627503337783712
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-    
-
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>First thing we'll take a look at is how these players compare on goals and assists in 2021. You can interact with the chart in the following ways:</p>
@@ -430,93 +326,6 @@ window.onload = wrap_img;
 </div>
 </div>
 </div>
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">advancedcolstoconvert</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;CF%&quot;</span><span class="p">,</span>
-                 <span class="s2">&quot;FF%&quot;</span>
-                <span class="p">]</span>
-
-<span class="n">NHL2021AdvancedStats</span><span class="p">[</span><span class="n">advancedcolstoconvert</span><span class="p">]</span> <span class="o">=</span> <span class="n">NHL2021AdvancedStats</span><span class="p">[</span><span class="n">advancedcolstoconvert</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">,</span> <span class="n">errors</span> <span class="o">=</span> <span class="s2">&quot;coerce&quot;</span><span class="p">)</span>
-
-
-<span class="n">NHL2021CorsiAverage</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">NHL2021AdvancedStats</span><span class="p">[</span><span class="s2">&quot;CF%&quot;</span><span class="p">])</span>
-<span class="n">NHL2021FenwickAverage</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">NHL2021AdvancedStats</span><span class="p">[</span><span class="s2">&quot;FF%&quot;</span><span class="p">])</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    
-
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">NHL2021CorsiAverage</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>49.33238866396761
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-    
-
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">NHL2021FenwickAverage</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>49.191093117408904
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-    
-
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -712,12 +521,12 @@ window.onload = wrap_img;
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 
-<div id="altair-viz-305a63d14c204d37bd5b79719564c7e3"></div>
+<div id="altair-viz-83b82a7576cf46fb8854cb57c20bf97f"></div>
 <script type="text/javascript">
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-305a63d14c204d37bd5b79719564c7e3") {
-      outputDiv = document.getElementById("altair-viz-305a63d14c204d37bd5b79719564c7e3");
+    if (outputDiv.id !== "altair-viz-83b82a7576cf46fb8854cb57c20bf97f") {
+      outputDiv = document.getElementById("altair-viz-83b82a7576cf46fb8854cb57c20bf97f");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
@@ -759,7 +568,7 @@ window.onload = wrap_img;
         .catch(showError)
         .then(() => displayChart(vegaEmbed));
     }
-  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-a6f9402ec1b19e4d5668551c9b3fc3c4"}, "mark": "bar", "encoding": {"x": {"type": "nominal", "field": "Player", "sort": {"field": "Salary Per Point Share", "order": "descending"}}, "y": {"type": "quantitative", "field": "Salary Per Point Share"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-a6f9402ec1b19e4d5668551c9b3fc3c4": [{"Rk": 160, "Player": "Drew Doughty", "Age": 31, "Tm_x": "LAK", "Pos": "D", "GP": 12, "G": 3, "A": 5, "PTS": 8, "+/-": -5, "PIM": 4, "PS": 1.2, "EV": 1, "PP": 2, "SH": 0, "GW": 0, "EV.1": 2, "PP.1": 3, "SH.1": 0, "S": 21, "S%": 14.3, "TOI": 323, "ATOI": "26:55", "BLK": 23, "HIT": 15, "FOW": 0, "FOL": 0, "FO%": null, "Tm_y": "LAK", "Salary": 10000000.0, "Cap Hit": 11000000.0, "Salary Per Point Share": 8333333.333333334}, {"Rk": 163, "Player": "Leon Draisaitl", "Age": 25, "Tm_x": "EDM", "Pos": "C", "GP": 15, "G": 8, "A": 17, "PTS": 25, "+/-": 11, "PIM": 4, "PS": 3.2, "EV": 3, "PP": 4, "SH": 1, "GW": 3, "EV.1": 12, "PP.1": 5, "SH.1": 0, "S": 43, "S%": 18.6, "TOI": 333, "ATOI": "22:10", "BLK": 7, "HIT": 11, "FOW": 173, "FOL": 122, "FO%": 58.6, "Tm_y": "EDM", "Salary": 9000000.0, "Cap Hit": 8500000.0, "Salary Per Point Share": 2812500.0}, {"Rk": 343, "Player": "Patrick Kane", "Age": 32, "Tm_x": "CHI", "Pos": "RW", "GP": 14, "G": 6, "A": 11, "PTS": 17, "+/-": 0, "PIM": 8, "PS": 1.9, "EV": 5, "PP": 1, "SH": 0, "GW": 0, "EV.1": 6, "PP.1": 5, "SH.1": 0, "S": 52, "S%": 11.5, "TOI": 308, "ATOI": "21:58", "BLK": 7, "HIT": 3, "FOW": 0, "FOL": 0, "FO%": null, "Tm_y": "CHI", "Salary": 7000000.0, "Cap Hit": 10500000.0, "Salary Per Point Share": 3684210.5263157897}, {"Rk": 368, "Player": "Anze Kopitar", "Age": 33, "Tm_x": "LAK", "Pos": "C", "GP": 12, "G": 3, "A": 12, "PTS": 15, "+/-": 0, "PIM": 2, "PS": 1.4, "EV": 3, "PP": 0, "SH": 0, "GW": 1, "EV.1": 4, "PP.1": 8, "SH.1": 0, "S": 28, "S%": 10.7, "TOI": 265, "ATOI": "22:05", "BLK": 8, "HIT": 13, "FOW": 137, "FOL": 116, "FO%": 54.2, "Tm_y": "LAK", "Salary": 8000000.0, "Cap Hit": 10000000.0, "Salary Per Point Share": 5714285.714285715}, {"Rk": 449, "Player": "Auston Matthews", "Age": 23, "Tm_x": "TOR", "Pos": "C", "GP": 12, "G": 11, "A": 4, "PTS": 15, "+/-": 6, "PIM": 2, "PS": 2.4, "EV": 8, "PP": 3, "SH": 0, "GW": 5, "EV.1": 4, "PP.1": 0, "SH.1": 0, "S": 52, "S%": 21.2, "TOI": 264, "ATOI": "21:58", "BLK": 11, "HIT": 19, "FOW": 116, "FOL": 101, "FO%": 53.5, "Tm_y": "TOR", "Salary": 15900000.0, "Cap Hit": 11640250.0, "Salary Per Point Share": 6625000.0}, {"Rk": 457, "Player": "Connor McDavid", "Age": 24, "Tm_x": "EDM", "Pos": "C", "GP": 15, "G": 9, "A": 18, "PTS": 27, "+/-": -1, "PIM": 10, "PS": 3.0, "EV": 5, "PP": 4, "SH": 0, "GW": 3, "EV.1": 11, "PP.1": 7, "SH.1": 0, "S": 54, "S%": 16.7, "TOI": 337, "ATOI": "22:28", "BLK": 6, "HIT": 18, "FOW": 101, "FOL": 100, "FO%": 50.2, "Tm_y": "EDM", "Salary": 14000000.0, "Cap Hit": 12500000.0, "Salary Per Point Share": 4666666.666666667}, {"Rk": 525, "Player": "Artemi Panarin", "Age": 29, "Tm_x": "NYR", "Pos": "LW", "GP": 11, "G": 5, "A": 10, "PTS": 15, "+/-": 1, "PIM": 0, "PS": 1.8, "EV": 3, "PP": 2, "SH": 0, "GW": 0, "EV.1": 6, "PP.1": 4, "SH.1": 0, "S": 33, "S%": 15.2, "TOI": 235, "ATOI": "21:19", "BLK": 0, "HIT": 5, "FOW": 0, "FOL": 1, "FO%": 0.0, "Tm_y": "NYR", "Salary": 13000000.0, "Cap Hit": 11642857.0, "Salary Per Point Share": 7222222.222222222}, {"Rk": 674, "Player": "John Tavares", "Age": 30, "Tm_x": "TOR", "Pos": "C", "GP": 13, "G": 5, "A": 7, "PTS": 12, "+/-": 4, "PIM": 6, "PS": 1.4, "EV": 1, "PP": 4, "SH": 0, "GW": 1, "EV.1": 5, "PP.1": 2, "SH.1": 0, "S": 36, "S%": 13.9, "TOI": 234, "ATOI": "17:58", "BLK": 4, "HIT": 18, "FOW": 114, "FOL": 78, "FO%": 59.4, "Tm_y": "TOR", "Salary": 12000000.0, "Cap Hit": 11000000.0, "Salary Per Point Share": 8571428.571428573}, {"Rk": 696, "Player": "Jacob Trouba", "Age": 26, "Tm_x": "NYR", "Pos": "D", "GP": 11, "G": 0, "A": 2, "PTS": 2, "+/-": 2, "PIM": 8, "PS": 0.7, "EV": 0, "PP": 0, "SH": 0, "GW": 0, "EV.1": 2, "PP.1": 0, "SH.1": 0, "S": 19, "S%": 0.0, "TOI": 248, "ATOI": "22:31", "BLK": 25, "HIT": 38, "FOW": 0, "FOL": 0, "FO%": null, "Tm_y": "NYR", "Salary": 10000000.0, "Cap Hit": 8000000.0, "Salary Per Point Share": 14285714.285714287}]}}, {"mode": "vega-lite"});
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-a6f9402ec1b19e4d5668551c9b3fc3c4"}, "mark": "bar", "encoding": {"x": {"type": "nominal", "field": "Player", "sort": {"field": "Salary Per Point Share", "order": "descending"}}, "y": {"type": "quantitative", "field": "Salary Per Point Share"}}, "height": 500, "width": 500, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-a6f9402ec1b19e4d5668551c9b3fc3c4": [{"Rk": 160, "Player": "Drew Doughty", "Age": 31, "Tm_x": "LAK", "Pos": "D", "GP": 12, "G": 3, "A": 5, "PTS": 8, "+/-": -5, "PIM": 4, "PS": 1.2, "EV": 1, "PP": 2, "SH": 0, "GW": 0, "EV.1": 2, "PP.1": 3, "SH.1": 0, "S": 21, "S%": 14.3, "TOI": 323, "ATOI": "26:55", "BLK": 23, "HIT": 15, "FOW": 0, "FOL": 0, "FO%": null, "Tm_y": "LAK", "Salary": 10000000.0, "Cap Hit": 11000000.0, "Salary Per Point Share": 8333333.333333334}, {"Rk": 163, "Player": "Leon Draisaitl", "Age": 25, "Tm_x": "EDM", "Pos": "C", "GP": 15, "G": 8, "A": 17, "PTS": 25, "+/-": 11, "PIM": 4, "PS": 3.2, "EV": 3, "PP": 4, "SH": 1, "GW": 3, "EV.1": 12, "PP.1": 5, "SH.1": 0, "S": 43, "S%": 18.6, "TOI": 333, "ATOI": "22:10", "BLK": 7, "HIT": 11, "FOW": 173, "FOL": 122, "FO%": 58.6, "Tm_y": "EDM", "Salary": 9000000.0, "Cap Hit": 8500000.0, "Salary Per Point Share": 2812500.0}, {"Rk": 343, "Player": "Patrick Kane", "Age": 32, "Tm_x": "CHI", "Pos": "RW", "GP": 14, "G": 6, "A": 11, "PTS": 17, "+/-": 0, "PIM": 8, "PS": 1.9, "EV": 5, "PP": 1, "SH": 0, "GW": 0, "EV.1": 6, "PP.1": 5, "SH.1": 0, "S": 52, "S%": 11.5, "TOI": 308, "ATOI": "21:58", "BLK": 7, "HIT": 3, "FOW": 0, "FOL": 0, "FO%": null, "Tm_y": "CHI", "Salary": 7000000.0, "Cap Hit": 10500000.0, "Salary Per Point Share": 3684210.5263157897}, {"Rk": 368, "Player": "Anze Kopitar", "Age": 33, "Tm_x": "LAK", "Pos": "C", "GP": 12, "G": 3, "A": 12, "PTS": 15, "+/-": 0, "PIM": 2, "PS": 1.4, "EV": 3, "PP": 0, "SH": 0, "GW": 1, "EV.1": 4, "PP.1": 8, "SH.1": 0, "S": 28, "S%": 10.7, "TOI": 265, "ATOI": "22:05", "BLK": 8, "HIT": 13, "FOW": 137, "FOL": 116, "FO%": 54.2, "Tm_y": "LAK", "Salary": 8000000.0, "Cap Hit": 10000000.0, "Salary Per Point Share": 5714285.714285715}, {"Rk": 449, "Player": "Auston Matthews", "Age": 23, "Tm_x": "TOR", "Pos": "C", "GP": 12, "G": 11, "A": 4, "PTS": 15, "+/-": 6, "PIM": 2, "PS": 2.4, "EV": 8, "PP": 3, "SH": 0, "GW": 5, "EV.1": 4, "PP.1": 0, "SH.1": 0, "S": 52, "S%": 21.2, "TOI": 264, "ATOI": "21:58", "BLK": 11, "HIT": 19, "FOW": 116, "FOL": 101, "FO%": 53.5, "Tm_y": "TOR", "Salary": 15900000.0, "Cap Hit": 11640250.0, "Salary Per Point Share": 6625000.0}, {"Rk": 457, "Player": "Connor McDavid", "Age": 24, "Tm_x": "EDM", "Pos": "C", "GP": 15, "G": 9, "A": 18, "PTS": 27, "+/-": -1, "PIM": 10, "PS": 3.0, "EV": 5, "PP": 4, "SH": 0, "GW": 3, "EV.1": 11, "PP.1": 7, "SH.1": 0, "S": 54, "S%": 16.7, "TOI": 337, "ATOI": "22:28", "BLK": 6, "HIT": 18, "FOW": 101, "FOL": 100, "FO%": 50.2, "Tm_y": "EDM", "Salary": 14000000.0, "Cap Hit": 12500000.0, "Salary Per Point Share": 4666666.666666667}, {"Rk": 525, "Player": "Artemi Panarin", "Age": 29, "Tm_x": "NYR", "Pos": "LW", "GP": 11, "G": 5, "A": 10, "PTS": 15, "+/-": 1, "PIM": 0, "PS": 1.8, "EV": 3, "PP": 2, "SH": 0, "GW": 0, "EV.1": 6, "PP.1": 4, "SH.1": 0, "S": 33, "S%": 15.2, "TOI": 235, "ATOI": "21:19", "BLK": 0, "HIT": 5, "FOW": 0, "FOL": 1, "FO%": 0.0, "Tm_y": "NYR", "Salary": 13000000.0, "Cap Hit": 11642857.0, "Salary Per Point Share": 7222222.222222222}, {"Rk": 674, "Player": "John Tavares", "Age": 30, "Tm_x": "TOR", "Pos": "C", "GP": 13, "G": 5, "A": 7, "PTS": 12, "+/-": 4, "PIM": 6, "PS": 1.4, "EV": 1, "PP": 4, "SH": 0, "GW": 1, "EV.1": 5, "PP.1": 2, "SH.1": 0, "S": 36, "S%": 13.9, "TOI": 234, "ATOI": "17:58", "BLK": 4, "HIT": 18, "FOW": 114, "FOL": 78, "FO%": 59.4, "Tm_y": "TOR", "Salary": 12000000.0, "Cap Hit": 11000000.0, "Salary Per Point Share": 8571428.571428573}, {"Rk": 696, "Player": "Jacob Trouba", "Age": 26, "Tm_x": "NYR", "Pos": "D", "GP": 11, "G": 0, "A": 2, "PTS": 2, "+/-": 2, "PIM": 8, "PS": 0.7, "EV": 0, "PP": 0, "SH": 0, "GW": 0, "EV.1": 2, "PP.1": 0, "SH.1": 0, "S": 19, "S%": 0.0, "TOI": 248, "ATOI": "22:31", "BLK": 25, "HIT": 38, "FOW": 0, "FOL": 0, "FO%": null, "Tm_y": "NYR", "Salary": 10000000.0, "Cap Hit": 8000000.0, "Salary Per Point Share": 14285714.285714287}]}}, {"mode": "vega-lite"});
 </script>
 </div>
 
@@ -783,12 +592,12 @@ window.onload = wrap_img;
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 
-<div id="altair-viz-8490ed24cb094894bd97133e497f5ff6"></div>
+<div id="altair-viz-d04917a36ace4325b0153fc35ad4b378"></div>
 <script type="text/javascript">
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-8490ed24cb094894bd97133e497f5ff6") {
-      outputDiv = document.getElementById("altair-viz-8490ed24cb094894bd97133e497f5ff6");
+    if (outputDiv.id !== "altair-viz-d04917a36ace4325b0153fc35ad4b378") {
+      outputDiv = document.getElementById("altair-viz-d04917a36ace4325b0153fc35ad4b378");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
@@ -830,7 +639,7 @@ window.onload = wrap_img;
         .catch(showError)
         .then(() => displayChart(vegaEmbed));
     }
-  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-68da547cd4a1dd6008ebcf1e7e014777"}, "mark": "bar", "encoding": {"x": {"type": "nominal", "axis": {"title": "Team"}, "field": "Tm_x", "sort": {"field": "Salary Per Point Share", "order": "descending"}}, "y": {"type": "quantitative", "field": "Salary Per Point Share"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-68da547cd4a1dd6008ebcf1e7e014777": [{"Tm_x": "CHI", "Salary": 7000000.0, "Salary Per Point Share": 3684210.5263157897, "G": 6, "A": 11}, {"Tm_x": "EDM", "Salary": 23000000.0, "Salary Per Point Share": 7479166.666666667, "G": 17, "A": 35}, {"Tm_x": "LAK", "Salary": 18000000.0, "Salary Per Point Share": 14047619.047619049, "G": 6, "A": 17}, {"Tm_x": "NYR", "Salary": 23000000.0, "Salary Per Point Share": 21507936.507936507, "G": 5, "A": 12}, {"Tm_x": "TOR", "Salary": 27900000.0, "Salary Per Point Share": 15196428.571428573, "G": 16, "A": 11}]}}, {"mode": "vega-lite"});
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-68da547cd4a1dd6008ebcf1e7e014777"}, "mark": "bar", "encoding": {"x": {"type": "nominal", "axis": {"title": "Team"}, "field": "Tm_x", "sort": {"field": "Salary Per Point Share", "order": "descending"}}, "y": {"type": "quantitative", "field": "Salary Per Point Share"}}, "height": 500, "width": 500, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-68da547cd4a1dd6008ebcf1e7e014777": [{"Tm_x": "CHI", "Salary": 7000000.0, "Salary Per Point Share": 3684210.5263157897, "G": 6, "A": 11}, {"Tm_x": "EDM", "Salary": 23000000.0, "Salary Per Point Share": 7479166.666666667, "G": 17, "A": 35}, {"Tm_x": "LAK", "Salary": 18000000.0, "Salary Per Point Share": 14047619.047619049, "G": 6, "A": 17}, {"Tm_x": "NYR", "Salary": 23000000.0, "Salary Per Point Share": 21507936.507936507, "G": 5, "A": 12}, {"Tm_x": "TOR", "Salary": 27900000.0, "Salary Per Point Share": 15196428.571428573, "G": 16, "A": 11}]}}, {"mode": "vega-lite"});
 </script>
 </div>
 
