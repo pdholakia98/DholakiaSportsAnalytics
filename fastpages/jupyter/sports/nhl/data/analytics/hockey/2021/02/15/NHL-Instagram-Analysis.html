@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>NHL Player Analysis | Chart the Process</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="NHL Player Analysis" />
+<meta name="author" content="Parth Dholakia" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="From time to time, I see things on Instagram and they inspire me to take a look at the stats." />
+<meta property="og:description" content="From time to time, I see things on Instagram and they inspire me to take a look at the stats." />
+<link rel="canonical" href="https://parthdholakia.com/fastpages/jupyter/sports/nhl/data/analytics/hockey/2021/02/15/NHL-Instagram-Analysis.html" />
+<meta property="og:url" content="https://parthdholakia.com/fastpages/jupyter/sports/nhl/data/analytics/hockey/2021/02/15/NHL-Instagram-Analysis.html" />
+<meta property="og:site_name" content="Chart the Process" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-02-15T00:00:00-06:00" />
+<script type="application/ld+json">
+{"url":"https://parthdholakia.com/fastpages/jupyter/sports/nhl/data/analytics/hockey/2021/02/15/NHL-Instagram-Analysis.html","@type":"BlogPosting","headline":"NHL Player Analysis","dateModified":"2021-02-15T00:00:00-06:00","datePublished":"2021-02-15T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://parthdholakia.com/fastpages/jupyter/sports/nhl/data/analytics/hockey/2021/02/15/NHL-Instagram-Analysis.html"},"author":{"@type":"Person","name":"Parth Dholakia"},"description":"From time to time, I see things on Instagram and they inspire me to take a look at the stats.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://parthdholakia.com/feed.xml" title="Chart the Process" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-189256021-1','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Chart the Process</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About Me</a><a class="page-link" href="/search/">Search</a><a class="page-link" href="/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">NHL Player Analysis</h1><p class="page-description">From time to time, I see things on Instagram and they inspire me to take a look at the stats.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-02-15T00:00:00-06:00" itemprop="datePublished">
+        Feb 15, 2021
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Parth Dholakia</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      4 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/categories/#fastpages">fastpages</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#jupyter">jupyter</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#sports">sports</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#NHL">NHL</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#data">data</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#analytics">analytics</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#hockey">hockey</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          
+          
+          
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2021-02-15-NHL-Instagram-Analysis.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>I saw a post on Instagram from an account (@talkinghockey) that highlighted the following combinations of NHL players that are among the highest paid:</p>
+<p>Of course, once seeing this, I wanted to take a look at the actual numbers for these players to see which team is getting the bang for their buck. A couple things that I want to take a look at:</p>
+<ul>
+<li>Overall points per player group</li>
+<li>Impact by their Time On Ice</li>
+<li>Exploring hockey's advanced stats (Corsi and Fenwick)</li>
+<li>Team impact (how has their team performed since this player group started playing together?)</li>
+<li>Relative impact by contract value</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>First thing we'll take a look at is how these players compare on goals and assists in 2021. You can interact with the chart in the following ways:</p>
+<ul>
+<li>Click multiple players to see their names</li>
+<li>Drag and zoom in on the chart</li>
+<li>Hover over a player to see their names</li>
+</ul>
+<p>The colors represent the teams they play for to easily distinguish between the player groups.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+<div id="altair-viz-10997726a5ee44709751325172242349"></div>
+<script type="text/javascript">
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-10997726a5ee44709751325172242349") {
+      outputDiv = document.getElementById("altair-viz-10997726a5ee44709751325172242349");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.8.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function loadScript(lib) {
+      return new Promise(function(resolve, reject) {
+        var s = document.createElement('script');
+        s.src = paths[lib];
+        s.async = true;
+        s.onload = () => resolve(paths[lib]);
+        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+        document.getElementsByTagName("head")[0].appendChild(s);
+      });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else if (typeof vegaEmbed === "function") {
+      displayChart(vegaEmbed);
+    } else {
+      loadScript("vega")
+        .then(() => loadScript("vega-lite"))
+        .then(() => loadScript("vega-embed"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": "circle", "encoding": {"color": {"type": "nominal", "field": "Tm", "legend": {"title": "Team"}}, "tooltip": [{"type": "quantitative", "field": "G"}, {"type": "quantitative", "field": "A"}], "x": {"type": "quantitative", "axis": {"title": "Goals"}, "field": "G"}, "y": {"type": "quantitative", "axis": {"title": "Assists"}, "field": "A"}}, "selection": {"selector001": {"type": "single", "on": "mouseover", "nearest": true, "empty": "none"}, "selector002": {"type": "multi", "empty": "none"}, "selector003": {"type": "interval", "bind": "scales"}}, "title": "2021 Goals and Assists Comparison"}, {"mark": {"type": "point", "size": 100, "stroke": "firebrick", "strokeWidth": 1}, "encoding": {"color": {"type": "nominal", "field": "Tm", "legend": {"title": "Team"}}, "tooltip": [{"type": "quantitative", "field": "G"}, {"type": "quantitative", "field": "A"}], "x": {"type": "quantitative", "axis": {"title": "Goals"}, "field": "G"}, "y": {"type": "quantitative", "axis": {"title": "Assists"}, "field": "A"}}, "title": "2021 Goals and Assists Comparison", "transform": [{"filter": {"selection": {"or": ["selector001", "selector002"]}}}]}, {"mark": {"type": "text", "align": "right", "dx": 4, "dy": -8, "stroke": "white", "strokeWidth": 2}, "encoding": {"color": {"type": "nominal", "field": "Tm", "legend": {"title": "Team"}}, "text": {"type": "nominal", "field": "Player"}, "tooltip": [{"type": "quantitative", "field": "G"}, {"type": "quantitative", "field": "A"}], "x": {"type": "quantitative", "axis": {"title": "Goals"}, "field": "G"}, "y": {"type": "quantitative", "axis": {"title": "Assists"}, "field": "A"}}, "title": "2021 Goals and Assists Comparison", "transform": [{"filter": {"selection": {"or": ["selector001", "selector002"]}}}]}, {"mark": {"type": "text", "align": "right", "dx": 4, "dy": -8}, "encoding": {"color": {"type": "nominal", "field": "Tm", "legend": {"title": "Team"}}, "text": {"type": "nominal", "field": "Player"}, "tooltip": [{"type": "quantitative", "field": "G"}, {"type": "quantitative", "field": "A"}], "x": {"type": "quantitative", "axis": {"title": "Goals"}, "field": "G"}, "y": {"type": "quantitative", "axis": {"title": "Assists"}, "field": "A"}}, "title": "2021 Goals and Assists Comparison", "transform": [{"filter": {"selection": {"or": ["selector001", "selector002"]}}}]}], "data": {"name": "data-e79bff10ed17024ee630b1932ef148ec"}, "height": 550, "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-e79bff10ed17024ee630b1932ef148ec": [{"Rk": 160, "Player": "Drew Doughty", "Age": 31, "Tm": "LAK", "Pos": "D", "GP": 12, "G": 3, "A": 5, "PTS": 8, "+/-": -5, "PIM": 4, "PS": 1.2, "EV": 1, "PP": 2, "SH": 0, "GW": 0, "EV.1": 2, "PP.1": 3, "SH.1": 0, "S": 21, "S%": 14.3, "TOI": 323, "ATOI": "26:55", "BLK": 23, "HIT": 15, "FOW": 0, "FOL": 0, "FO%": null}, {"Rk": 163, "Player": "Leon Draisaitl", "Age": 25, "Tm": "EDM", "Pos": "C", "GP": 15, "G": 8, "A": 17, "PTS": 25, "+/-": 11, "PIM": 4, "PS": 3.2, "EV": 3, "PP": 4, "SH": 1, "GW": 3, "EV.1": 12, "PP.1": 5, "SH.1": 0, "S": 43, "S%": 18.6, "TOI": 333, "ATOI": "22:10", "BLK": 7, "HIT": 11, "FOW": 173, "FOL": 122, "FO%": 58.6}, {"Rk": 343, "Player": "Patrick Kane", "Age": 32, "Tm": "CHI", "Pos": "RW", "GP": 14, "G": 6, "A": 11, "PTS": 17, "+/-": 0, "PIM": 8, "PS": 1.9, "EV": 5, "PP": 1, "SH": 0, "GW": 0, "EV.1": 6, "PP.1": 5, "SH.1": 0, "S": 52, "S%": 11.5, "TOI": 308, "ATOI": "21:58", "BLK": 7, "HIT": 3, "FOW": 0, "FOL": 0, "FO%": null}, {"Rk": 368, "Player": "Anze Kopitar", "Age": 33, "Tm": "LAK", "Pos": "C", "GP": 12, "G": 3, "A": 12, "PTS": 15, "+/-": 0, "PIM": 2, "PS": 1.4, "EV": 3, "PP": 0, "SH": 0, "GW": 1, "EV.1": 4, "PP.1": 8, "SH.1": 0, "S": 28, "S%": 10.7, "TOI": 265, "ATOI": "22:05", "BLK": 8, "HIT": 13, "FOW": 137, "FOL": 116, "FO%": 54.2}, {"Rk": 449, "Player": "Auston Matthews", "Age": 23, "Tm": "TOR", "Pos": "C", "GP": 12, "G": 11, "A": 4, "PTS": 15, "+/-": 6, "PIM": 2, "PS": 2.4, "EV": 8, "PP": 3, "SH": 0, "GW": 5, "EV.1": 4, "PP.1": 0, "SH.1": 0, "S": 52, "S%": 21.2, "TOI": 264, "ATOI": "21:58", "BLK": 11, "HIT": 19, "FOW": 116, "FOL": 101, "FO%": 53.5}, {"Rk": 457, "Player": "Connor McDavid", "Age": 24, "Tm": "EDM", "Pos": "C", "GP": 15, "G": 9, "A": 18, "PTS": 27, "+/-": -1, "PIM": 10, "PS": 3.0, "EV": 5, "PP": 4, "SH": 0, "GW": 3, "EV.1": 11, "PP.1": 7, "SH.1": 0, "S": 54, "S%": 16.7, "TOI": 337, "ATOI": "22:28", "BLK": 6, "HIT": 18, "FOW": 101, "FOL": 100, "FO%": 50.2}, {"Rk": 525, "Player": "Artemi Panarin", "Age": 29, "Tm": "NYR", "Pos": "LW", "GP": 11, "G": 5, "A": 10, "PTS": 15, "+/-": 1, "PIM": 0, "PS": 1.8, "EV": 3, "PP": 2, "SH": 0, "GW": 0, "EV.1": 6, "PP.1": 4, "SH.1": 0, "S": 33, "S%": 15.2, "TOI": 235, "ATOI": "21:19", "BLK": 0, "HIT": 5, "FOW": 0, "FOL": 1, "FO%": 0.0}, {"Rk": 674, "Player": "John Tavares", "Age": 30, "Tm": "TOR", "Pos": "C", "GP": 13, "G": 5, "A": 7, "PTS": 12, "+/-": 4, "PIM": 6, "PS": 1.4, "EV": 1, "PP": 4, "SH": 0, "GW": 1, "EV.1": 5, "PP.1": 2, "SH.1": 0, "S": 36, "S%": 13.9, "TOI": 234, "ATOI": "17:58", "BLK": 4, "HIT": 18, "FOW": 114, "FOL": 78, "FO%": 59.4}, {"Rk": 696, "Player": "Jacob Trouba", "Age": 26, "Tm": "NYR", "Pos": "D", "GP": 11, "G": 0, "A": 2, "PTS": 2, "+/-": 2, "PIM": 8, "PS": 0.7, "EV": 0, "PP": 0, "SH": 0, "GW": 0, "EV.1": 2, "PP.1": 0, "SH.1": 0, "S": 19, "S%": 0.0, "TOI": 248, "ATOI": "22:31", "BLK": 25, "HIT": 38, "FOW": 0, "FOL": 0, "FO%": null}]}}, {"mode": "vega-lite"});
+</script>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>What are we seeing here? A couple things quickly stand out based on looking at just Goals and Assists:</p>
+<ul>
+<li>Edmonton's duo are outpacing everyone, putting up 17 G and 34 A - looking like they're going to be off the chart soon</li>
+<li>It's slightly unfair to Patrick Kane, who is currently solely responsible for representing Chicago here. Given Jonathan Toews' injury, we may not see a fair representation of that duo. Despite that, Patrick Kane is still putting up 17 PTS</li>
+<li>We have two defensemen in this group, Drew Doughty and Jacob Trouba, who won't contribute to the offense in the same way as the rest of the group</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+<div id="altair-viz-8765484a16724584a93b6074de048e28"></div>
+<script type="text/javascript">
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-8765484a16724584a93b6074de048e28") {
+      outputDiv = document.getElementById("altair-viz-8765484a16724584a93b6074de048e28");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.8.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function loadScript(lib) {
+      return new Promise(function(resolve, reject) {
+        var s = document.createElement('script');
+        s.src = paths[lib];
+        s.async = true;
+        s.onload = () => resolve(paths[lib]);
+        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+        document.getElementsByTagName("head")[0].appendChild(s);
+      });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else if (typeof vegaEmbed === "function") {
+      displayChart(vegaEmbed);
+    } else {
+      loadScript("vega")
+        .then(() => loadScript("vega-lite"))
+        .then(() => loadScript("vega-embed"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": "circle", "encoding": {"color": {"type": "nominal", "field": "Tm", "legend": {"title": "Team"}}, "tooltip": [{"type": "quantitative", "field": "+/-"}, {"type": "quantitative", "field": "PS"}], "x": {"type": "quantitative", "axis": {"title": "Plus Minus"}, "field": "+/-"}, "y": {"type": "quantitative", "axis": {"title": "Point Shares"}, "field": "PS"}}, "selection": {"selector004": {"type": "single", "on": "mouseover", "nearest": true, "empty": "none"}, "selector005": {"type": "multi", "empty": "none"}, "selector006": {"type": "interval", "bind": "scales"}}, "title": "2021 Plus Minus and Point Shares Comparison"}, {"mark": {"type": "point", "size": 100, "stroke": "firebrick", "strokeWidth": 1}, "encoding": {"color": {"type": "nominal", "field": "Tm", "legend": {"title": "Team"}}, "tooltip": [{"type": "quantitative", "field": "+/-"}, {"type": "quantitative", "field": "PS"}], "x": {"type": "quantitative", "axis": {"title": "Plus Minus"}, "field": "+/-"}, "y": {"type": "quantitative", "axis": {"title": "Point Shares"}, "field": "PS"}}, "title": "2021 Plus Minus and Point Shares Comparison", "transform": [{"filter": {"selection": {"or": ["selector004", "selector005"]}}}]}, {"mark": {"type": "text", "align": "right", "dx": 4, "dy": -8, "stroke": "white", "strokeWidth": 2}, "encoding": {"color": {"type": "nominal", "field": "Tm", "legend": {"title": "Team"}}, "text": {"type": "nominal", "field": "Player"}, "tooltip": [{"type": "quantitative", "field": "+/-"}, {"type": "quantitative", "field": "PS"}], "x": {"type": "quantitative", "axis": {"title": "Plus Minus"}, "field": "+/-"}, "y": {"type": "quantitative", "axis": {"title": "Point Shares"}, "field": "PS"}}, "title": "2021 Plus Minus and Point Shares Comparison", "transform": [{"filter": {"selection": {"or": ["selector004", "selector005"]}}}]}, {"mark": {"type": "text", "align": "right", "dx": 4, "dy": -8}, "encoding": {"color": {"type": "nominal", "field": "Tm", "legend": {"title": "Team"}}, "text": {"type": "nominal", "field": "Player"}, "tooltip": [{"type": "quantitative", "field": "+/-"}, {"type": "quantitative", "field": "PS"}], "x": {"type": "quantitative", "axis": {"title": "Plus Minus"}, "field": "+/-"}, "y": {"type": "quantitative", "axis": {"title": "Point Shares"}, "field": "PS"}}, "title": "2021 Plus Minus and Point Shares Comparison", "transform": [{"filter": {"selection": {"or": ["selector004", "selector005"]}}}]}], "data": {"name": "data-e79bff10ed17024ee630b1932ef148ec"}, "height": 550, "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-e79bff10ed17024ee630b1932ef148ec": [{"Rk": 160, "Player": "Drew Doughty", "Age": 31, "Tm": "LAK", "Pos": "D", "GP": 12, "G": 3, "A": 5, "PTS": 8, "+/-": -5, "PIM": 4, "PS": 1.2, "EV": 1, "PP": 2, "SH": 0, "GW": 0, "EV.1": 2, "PP.1": 3, "SH.1": 0, "S": 21, "S%": 14.3, "TOI": 323, "ATOI": "26:55", "BLK": 23, "HIT": 15, "FOW": 0, "FOL": 0, "FO%": null}, {"Rk": 163, "Player": "Leon Draisaitl", "Age": 25, "Tm": "EDM", "Pos": "C", "GP": 15, "G": 8, "A": 17, "PTS": 25, "+/-": 11, "PIM": 4, "PS": 3.2, "EV": 3, "PP": 4, "SH": 1, "GW": 3, "EV.1": 12, "PP.1": 5, "SH.1": 0, "S": 43, "S%": 18.6, "TOI": 333, "ATOI": "22:10", "BLK": 7, "HIT": 11, "FOW": 173, "FOL": 122, "FO%": 58.6}, {"Rk": 343, "Player": "Patrick Kane", "Age": 32, "Tm": "CHI", "Pos": "RW", "GP": 14, "G": 6, "A": 11, "PTS": 17, "+/-": 0, "PIM": 8, "PS": 1.9, "EV": 5, "PP": 1, "SH": 0, "GW": 0, "EV.1": 6, "PP.1": 5, "SH.1": 0, "S": 52, "S%": 11.5, "TOI": 308, "ATOI": "21:58", "BLK": 7, "HIT": 3, "FOW": 0, "FOL": 0, "FO%": null}, {"Rk": 368, "Player": "Anze Kopitar", "Age": 33, "Tm": "LAK", "Pos": "C", "GP": 12, "G": 3, "A": 12, "PTS": 15, "+/-": 0, "PIM": 2, "PS": 1.4, "EV": 3, "PP": 0, "SH": 0, "GW": 1, "EV.1": 4, "PP.1": 8, "SH.1": 0, "S": 28, "S%": 10.7, "TOI": 265, "ATOI": "22:05", "BLK": 8, "HIT": 13, "FOW": 137, "FOL": 116, "FO%": 54.2}, {"Rk": 449, "Player": "Auston Matthews", "Age": 23, "Tm": "TOR", "Pos": "C", "GP": 12, "G": 11, "A": 4, "PTS": 15, "+/-": 6, "PIM": 2, "PS": 2.4, "EV": 8, "PP": 3, "SH": 0, "GW": 5, "EV.1": 4, "PP.1": 0, "SH.1": 0, "S": 52, "S%": 21.2, "TOI": 264, "ATOI": "21:58", "BLK": 11, "HIT": 19, "FOW": 116, "FOL": 101, "FO%": 53.5}, {"Rk": 457, "Player": "Connor McDavid", "Age": 24, "Tm": "EDM", "Pos": "C", "GP": 15, "G": 9, "A": 18, "PTS": 27, "+/-": -1, "PIM": 10, "PS": 3.0, "EV": 5, "PP": 4, "SH": 0, "GW": 3, "EV.1": 11, "PP.1": 7, "SH.1": 0, "S": 54, "S%": 16.7, "TOI": 337, "ATOI": "22:28", "BLK": 6, "HIT": 18, "FOW": 101, "FOL": 100, "FO%": 50.2}, {"Rk": 525, "Player": "Artemi Panarin", "Age": 29, "Tm": "NYR", "Pos": "LW", "GP": 11, "G": 5, "A": 10, "PTS": 15, "+/-": 1, "PIM": 0, "PS": 1.8, "EV": 3, "PP": 2, "SH": 0, "GW": 0, "EV.1": 6, "PP.1": 4, "SH.1": 0, "S": 33, "S%": 15.2, "TOI": 235, "ATOI": "21:19", "BLK": 0, "HIT": 5, "FOW": 0, "FOL": 1, "FO%": 0.0}, {"Rk": 674, "Player": "John Tavares", "Age": 30, "Tm": "TOR", "Pos": "C", "GP": 13, "G": 5, "A": 7, "PTS": 12, "+/-": 4, "PIM": 6, "PS": 1.4, "EV": 1, "PP": 4, "SH": 0, "GW": 1, "EV.1": 5, "PP.1": 2, "SH.1": 0, "S": 36, "S%": 13.9, "TOI": 234, "ATOI": "17:58", "BLK": 4, "HIT": 18, "FOW": 114, "FOL": 78, "FO%": 59.4}, {"Rk": 696, "Player": "Jacob Trouba", "Age": 26, "Tm": "NYR", "Pos": "D", "GP": 11, "G": 0, "A": 2, "PTS": 2, "+/-": 2, "PIM": 8, "PS": 0.7, "EV": 0, "PP": 0, "SH": 0, "GW": 0, "EV.1": 2, "PP.1": 0, "SH.1": 0, "S": 19, "S%": 0.0, "TOI": 248, "ATOI": "22:31", "BLK": 25, "HIT": 38, "FOW": 0, "FOL": 0, "FO%": null}]}}, {"mode": "vega-lite"});
+</script>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Before we get into some insights on the above chart, let's quickly review what Plus Minus and Point Shares are. These are both different statistics used to attribute team success to an individual player.</p>
+<p><strong>Plus Minus</strong></p>
+<p>Plus/minus is calculated by subtracting the total number of goals allowed by a player's team while the player is on the ice (at even strength or on the power play) from the total number of goals scored by the player's team while the player is on the ice (at even strength or short-handed). On average, a player with a positive plus minus will benefit the team with more goals scored than goals against.</p>
+<p><strong>Point Shares</strong></p>
+<p>Point shares is another effort to attribute team success to individual players through calculating offensive point shares and defensive point shares for each player.</p>
+<p>Offensive point shares take into account player goals created (Goals and Assists) compared to the team goals.</p>
+<p>Defensive point shares take into account player time on ice compared to team total time on ice, player plus minus and team goals against.</p>
+<p>You can find additional documentation on the calculation for this here: <a href="https://www.hockey-reference.com/about/point_shares.html">https://www.hockey-reference.com/about/point_shares.html</a></p>
+<p><strong>Insights</strong></p>
+<p>Let's be very clear here, we're looking an an elite level of players. The 2021 NHL average for plus minus is 0 and the average for point shares is about 0.4, putting all these players at a level far above the rest in the league.</p>
+<p>As we look at Plus Minus and Point Shares, similar insights stand out as well:</p>
+<ul>
+<li>The Edmonton players contribute the most points to their team, by a long shot. However Connor McDavid is near even on plus minus</li>
+<li>Both of the LA Kings players are 0 or below on plus minus, mostly an indication of LA's defensive struggles so far this season</li>
+<li>Auston Matthews is clearly outpacing Jon Tavares in both plus minus and point shares</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+<div id="altair-viz-dcd75fb48397424d8ff82e9dfd7b39c9"></div>
+<script type="text/javascript">
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-dcd75fb48397424d8ff82e9dfd7b39c9") {
+      outputDiv = document.getElementById("altair-viz-dcd75fb48397424d8ff82e9dfd7b39c9");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.8.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function loadScript(lib) {
+      return new Promise(function(resolve, reject) {
+        var s = document.createElement('script');
+        s.src = paths[lib];
+        s.async = true;
+        s.onload = () => resolve(paths[lib]);
+        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+        document.getElementsByTagName("head")[0].appendChild(s);
+      });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else if (typeof vegaEmbed === "function") {
+      displayChart(vegaEmbed);
+    } else {
+      loadScript("vega")
+        .then(() => loadScript("vega-lite"))
+        .then(() => loadScript("vega-embed"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": "circle", "encoding": {"color": {"type": "nominal", "field": "Tm", "legend": {"title": "Team"}}, "tooltip": [{"type": "quantitative", "field": "CF%"}, {"type": "quantitative", "field": "FF%"}], "x": {"type": "quantitative", "axis": {"title": "Corsi Percentage"}, "field": "CF%"}, "y": {"type": "quantitative", "axis": {"title": "Fenwick Percentage"}, "field": "FF%"}}, "selection": {"selector010": {"type": "single", "on": "mouseover", "nearest": true, "empty": "none"}, "selector011": {"type": "multi", "empty": "none"}, "selector012": {"type": "interval", "bind": "scales"}}, "title": "2021 Corsi and Fenwick Comparison"}, {"mark": {"type": "point", "size": 100, "stroke": "firebrick", "strokeWidth": 1}, "encoding": {"color": {"type": "nominal", "field": "Tm", "legend": {"title": "Team"}}, "tooltip": [{"type": "quantitative", "field": "CF%"}, {"type": "quantitative", "field": "FF%"}], "x": {"type": "quantitative", "axis": {"title": "Corsi Percentage"}, "field": "CF%"}, "y": {"type": "quantitative", "axis": {"title": "Fenwick Percentage"}, "field": "FF%"}}, "title": "2021 Corsi and Fenwick Comparison", "transform": [{"filter": {"selection": {"or": ["selector010", "selector011"]}}}]}, {"mark": {"type": "text", "align": "right", "dx": 4, "dy": -8, "stroke": "white", "strokeWidth": 2}, "encoding": {"color": {"type": "nominal", "field": "Tm", "legend": {"title": "Team"}}, "text": {"type": "nominal", "field": "Player"}, "tooltip": [{"type": "quantitative", "field": "CF%"}, {"type": "quantitative", "field": "FF%"}], "x": {"type": "quantitative", "axis": {"title": "Corsi Percentage"}, "field": "CF%"}, "y": {"type": "quantitative", "axis": {"title": "Fenwick Percentage"}, "field": "FF%"}}, "title": "2021 Corsi and Fenwick Comparison", "transform": [{"filter": {"selection": {"or": ["selector010", "selector011"]}}}]}, {"mark": {"type": "text", "align": "right", "dx": 4, "dy": -8}, "encoding": {"color": {"type": "nominal", "field": "Tm", "legend": {"title": "Team"}}, "text": {"type": "nominal", "field": "Player"}, "tooltip": [{"type": "quantitative", "field": "CF%"}, {"type": "quantitative", "field": "FF%"}], "x": {"type": "quantitative", "axis": {"title": "Corsi Percentage"}, "field": "CF%"}, "y": {"type": "quantitative", "axis": {"title": "Fenwick Percentage"}, "field": "FF%"}}, "title": "2021 Corsi and Fenwick Comparison", "transform": [{"filter": {"selection": {"or": ["selector010", "selector011"]}}}]}], "data": {"name": "data-1a3bb29143edb307e0ff33c745e85090"}, "height": 550, "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-1a3bb29143edb307e0ff33c745e85090": [{"Rk": 160, "Player": "Drew Doughty", "Age": 31, "Tm": "LAK", "Pos": "D", "GP": 12, "CF": 180, "CA": 197, "CF%": 47.7, "CF% rel": 2.7, "FF": 137, "FA": 155, "FF%": 46.9, "FF% rel": 1.0, "oiSH%": 8.3, "oiSV%": 88.0, "PDO": 96.3, "oZS%": 52.3, "dZS%": 47.7, "TOI/60": "26:55", "TOI(EV)": "19:56", "TK": 2, "GV": 10, "E+/-": -2.2, "SAtt.": 49, "Thru%": 42.9}, {"Rk": 163, "Player": "Leon Draisaitl", "Age": 25, "Tm": "EDM", "Pos": "C", "GP": 15, "CF": 224, "CA": 239, "CF%": 48.4, "CF% rel": 0.4, "FF": 172, "FA": 170, "FF%": 50.3, "FF% rel": 1.4, "oiSH%": 15.1, "oiSV%": 94.4, "PDO": 109.5, "oZS%": 48.3, "dZS%": 51.7, "TOI/60": "22:10", "TOI(EV)": "15:57", "TK": 10, "GV": 14, "E+/-": -1.8, "SAtt.": 73, "Thru%": 58.9}, {"Rk": 343, "Player": "Patrick Kane", "Age": 32, "Tm": "CHI", "Pos": "RW", "GP": 14, "CF": 191, "CA": 239, "CF%": 44.4, "CF% rel": -4.1, "FF": 146, "FA": 181, "FF%": 44.6, "FF% rel": -4.2, "oiSH%": 11.7, "oiSV%": 90.2, "PDO": 101.9, "oZS%": 57.0, "dZS%": 43.0, "TOI/60": "21:58", "TOI(EV)": "17:44", "TK": 9, "GV": 6, "E+/-": 1.0, "SAtt.": 89, "Thru%": 58.4}, {"Rk": 368, "Player": "Anze Kopitar", "Age": 33, "Tm": "LAK", "Pos": "C", "GP": 12, "CF": 165, "CA": 164, "CF%": 50.2, "CF% rel": 6.0, "FF": 127, "FA": 125, "FF%": 50.4, "FF% rel": 6.1, "oiSH%": 11.6, "oiSV%": 88.3, "PDO": 99.9, "oZS%": 50.5, "dZS%": 49.5, "TOI/60": "22:05", "TOI(EV)": "15:47", "TK": 2, "GV": 10, "E+/-": -1.9, "SAtt.": 60, "Thru%": 46.7}, {"Rk": 449, "Player": "Auston Matthews", "Age": 23, "Tm": "TOR", "Pos": "C", "GP": 12, "CF": 199, "CA": 175, "CF%": 53.2, "CF% rel": 3.4, "FF": 148, "FA": 135, "FF%": 52.3, "FF% rel": 4.0, "oiSH%": 15.5, "oiSV%": 89.1, "PDO": 104.7, "oZS%": 55.6, "dZS%": 44.4, "TOI/60": "21:58", "TOI(EV)": "18:21", "TK": 12, "GV": 7, "E+/-": 4.4, "SAtt.": 85, "Thru%": 61.2}, {"Rk": 457, "Player": "Connor McDavid", "Age": 24, "Tm": "EDM", "Pos": "C", "GP": 15, "CF": 273, "CA": 198, "CF%": 58.0, "CF% rel": 15.1, "FF": 209, "FA": 146, "FF%": 58.9, "FF% rel": 14.6, "oiSH%": 10.8, "oiSV%": 86.7, "PDO": 97.5, "oZS%": 61.7, "dZS%": 38.3, "TOI/60": "22:28", "TOI(EV)": "16:47", "TK": 4, "GV": 13, "E+/-": 1.1, "SAtt.": 78, "Thru%": 69.2}, {"Rk": 525, "Player": "Artemi Panarin", "Age": 29, "Tm": "NYR", "Pos": "LW", "GP": 11, "CF": 149, "CA": 144, "CF%": 50.9, "CF% rel": 2.3, "FF": 114, "FA": 114, "FF%": 50.0, "FF% rel": -0.3, "oiSH%": 10.5, "oiSV%": 90.1, "PDO": 100.6, "oZS%": 57.6, "dZS%": 42.4, "TOI/60": "21:19", "TOI(EV)": "16:33", "TK": 6, "GV": 8, "E+/-": 1.9, "SAtt.": 63, "Thru%": 52.4}, {"Rk": 674, "Player": "John Tavares", "Age": 30, "Tm": "TOR", "Pos": "C", "GP": 13, "CF": 176, "CA": 155, "CF%": 53.2, "CF% rel": 3.2, "FF": 131, "FA": 125, "FF%": 51.2, "FF% rel": 2.3, "oiSH%": 10.8, "oiSV%": 93.4, "PDO": 104.2, "oZS%": 56.9, "dZS%": 43.1, "TOI/60": "17:58", "TOI(EV)": "15:19", "TK": 9, "GV": 14, "E+/-": 2.9, "SAtt.": 57, "Thru%": 63.2}, {"Rk": 696, "Player": "Jacob Trouba", "Age": 26, "Tm": "NYR", "Pos": "D", "GP": 11, "CF": 175, "CA": 174, "CF%": 50.1, "CF% rel": 1.3, "FF": 131, "FA": 119, "FF%": 52.4, "FF% rel": 3.4, "oiSH%": 7.7, "oiSV%": 93.0, "PDO": 100.7, "oZS%": 54.3, "dZS%": 45.7, "TOI/60": "22:31", "TOI(EV)": "17:26", "TK": 8, "GV": 7, "E+/-": 0.9, "SAtt.": 43, "Thru%": 44.2}]}}, {"mode": "vega-lite"});
+</script>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Corsi and Fenwick stats are similar to plus minus, but they take into account shots instead of goals. Effectively, a high Corsi and Fenwick score indicates that you're shooting the puck more than the other team is. A 50% score indicates that you're schooting the puck at the same rate as the other team.</p>
+<p>The difference between Corsi and Fenwick is that Corsi takes into account blocked shots, while Fenwick does not.</p>
+<p>The two players that are clearly not positive on both scales are Drew Doughty and Patrick Kane. They both fall under the NHL average for each metric, which is 49%.</p>
+<p>Meanwhile, Connor McDavid is clearly a huge asset to his team with about a 58% score on both scales. Both players on the Maple Leafs scored quite close to each other, over 52%.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Player</th>
+      <th>Tm_x</th>
+      <th>Salary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Drew Doughty</td>
+      <td>LAK</td>
+      <td>$10,000,000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Jacob Trouba</td>
+      <td>NYR</td>
+      <td>$10,000,000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>John Tavares</td>
+      <td>TOR</td>
+      <td>$12,000,000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Artemi Panarin</td>
+      <td>NYR</td>
+      <td>$13,000,000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Connor McDavid</td>
+      <td>EDM</td>
+      <td>$14,000,000</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Auston Matthews</td>
+      <td>TOR</td>
+      <td>$15,900,000</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Patrick Kane</td>
+      <td>CHI</td>
+      <td>$7,000,000</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Anze Kopitar</td>
+      <td>LAK</td>
+      <td>$8,000,000</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Leon Draisaitl</td>
+      <td>EDM</td>
+      <td>$9,000,000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+<div id="altair-viz-83b82a7576cf46fb8854cb57c20bf97f"></div>
+<script type="text/javascript">
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-83b82a7576cf46fb8854cb57c20bf97f") {
+      outputDiv = document.getElementById("altair-viz-83b82a7576cf46fb8854cb57c20bf97f");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.8.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function loadScript(lib) {
+      return new Promise(function(resolve, reject) {
+        var s = document.createElement('script');
+        s.src = paths[lib];
+        s.async = true;
+        s.onload = () => resolve(paths[lib]);
+        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+        document.getElementsByTagName("head")[0].appendChild(s);
+      });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else if (typeof vegaEmbed === "function") {
+      displayChart(vegaEmbed);
+    } else {
+      loadScript("vega")
+        .then(() => loadScript("vega-lite"))
+        .then(() => loadScript("vega-embed"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-a6f9402ec1b19e4d5668551c9b3fc3c4"}, "mark": "bar", "encoding": {"x": {"type": "nominal", "field": "Player", "sort": {"field": "Salary Per Point Share", "order": "descending"}}, "y": {"type": "quantitative", "field": "Salary Per Point Share"}}, "height": 500, "width": 500, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-a6f9402ec1b19e4d5668551c9b3fc3c4": [{"Rk": 160, "Player": "Drew Doughty", "Age": 31, "Tm_x": "LAK", "Pos": "D", "GP": 12, "G": 3, "A": 5, "PTS": 8, "+/-": -5, "PIM": 4, "PS": 1.2, "EV": 1, "PP": 2, "SH": 0, "GW": 0, "EV.1": 2, "PP.1": 3, "SH.1": 0, "S": 21, "S%": 14.3, "TOI": 323, "ATOI": "26:55", "BLK": 23, "HIT": 15, "FOW": 0, "FOL": 0, "FO%": null, "Tm_y": "LAK", "Salary": 10000000.0, "Cap Hit": 11000000.0, "Salary Per Point Share": 8333333.333333334}, {"Rk": 163, "Player": "Leon Draisaitl", "Age": 25, "Tm_x": "EDM", "Pos": "C", "GP": 15, "G": 8, "A": 17, "PTS": 25, "+/-": 11, "PIM": 4, "PS": 3.2, "EV": 3, "PP": 4, "SH": 1, "GW": 3, "EV.1": 12, "PP.1": 5, "SH.1": 0, "S": 43, "S%": 18.6, "TOI": 333, "ATOI": "22:10", "BLK": 7, "HIT": 11, "FOW": 173, "FOL": 122, "FO%": 58.6, "Tm_y": "EDM", "Salary": 9000000.0, "Cap Hit": 8500000.0, "Salary Per Point Share": 2812500.0}, {"Rk": 343, "Player": "Patrick Kane", "Age": 32, "Tm_x": "CHI", "Pos": "RW", "GP": 14, "G": 6, "A": 11, "PTS": 17, "+/-": 0, "PIM": 8, "PS": 1.9, "EV": 5, "PP": 1, "SH": 0, "GW": 0, "EV.1": 6, "PP.1": 5, "SH.1": 0, "S": 52, "S%": 11.5, "TOI": 308, "ATOI": "21:58", "BLK": 7, "HIT": 3, "FOW": 0, "FOL": 0, "FO%": null, "Tm_y": "CHI", "Salary": 7000000.0, "Cap Hit": 10500000.0, "Salary Per Point Share": 3684210.5263157897}, {"Rk": 368, "Player": "Anze Kopitar", "Age": 33, "Tm_x": "LAK", "Pos": "C", "GP": 12, "G": 3, "A": 12, "PTS": 15, "+/-": 0, "PIM": 2, "PS": 1.4, "EV": 3, "PP": 0, "SH": 0, "GW": 1, "EV.1": 4, "PP.1": 8, "SH.1": 0, "S": 28, "S%": 10.7, "TOI": 265, "ATOI": "22:05", "BLK": 8, "HIT": 13, "FOW": 137, "FOL": 116, "FO%": 54.2, "Tm_y": "LAK", "Salary": 8000000.0, "Cap Hit": 10000000.0, "Salary Per Point Share": 5714285.714285715}, {"Rk": 449, "Player": "Auston Matthews", "Age": 23, "Tm_x": "TOR", "Pos": "C", "GP": 12, "G": 11, "A": 4, "PTS": 15, "+/-": 6, "PIM": 2, "PS": 2.4, "EV": 8, "PP": 3, "SH": 0, "GW": 5, "EV.1": 4, "PP.1": 0, "SH.1": 0, "S": 52, "S%": 21.2, "TOI": 264, "ATOI": "21:58", "BLK": 11, "HIT": 19, "FOW": 116, "FOL": 101, "FO%": 53.5, "Tm_y": "TOR", "Salary": 15900000.0, "Cap Hit": 11640250.0, "Salary Per Point Share": 6625000.0}, {"Rk": 457, "Player": "Connor McDavid", "Age": 24, "Tm_x": "EDM", "Pos": "C", "GP": 15, "G": 9, "A": 18, "PTS": 27, "+/-": -1, "PIM": 10, "PS": 3.0, "EV": 5, "PP": 4, "SH": 0, "GW": 3, "EV.1": 11, "PP.1": 7, "SH.1": 0, "S": 54, "S%": 16.7, "TOI": 337, "ATOI": "22:28", "BLK": 6, "HIT": 18, "FOW": 101, "FOL": 100, "FO%": 50.2, "Tm_y": "EDM", "Salary": 14000000.0, "Cap Hit": 12500000.0, "Salary Per Point Share": 4666666.666666667}, {"Rk": 525, "Player": "Artemi Panarin", "Age": 29, "Tm_x": "NYR", "Pos": "LW", "GP": 11, "G": 5, "A": 10, "PTS": 15, "+/-": 1, "PIM": 0, "PS": 1.8, "EV": 3, "PP": 2, "SH": 0, "GW": 0, "EV.1": 6, "PP.1": 4, "SH.1": 0, "S": 33, "S%": 15.2, "TOI": 235, "ATOI": "21:19", "BLK": 0, "HIT": 5, "FOW": 0, "FOL": 1, "FO%": 0.0, "Tm_y": "NYR", "Salary": 13000000.0, "Cap Hit": 11642857.0, "Salary Per Point Share": 7222222.222222222}, {"Rk": 674, "Player": "John Tavares", "Age": 30, "Tm_x": "TOR", "Pos": "C", "GP": 13, "G": 5, "A": 7, "PTS": 12, "+/-": 4, "PIM": 6, "PS": 1.4, "EV": 1, "PP": 4, "SH": 0, "GW": 1, "EV.1": 5, "PP.1": 2, "SH.1": 0, "S": 36, "S%": 13.9, "TOI": 234, "ATOI": "17:58", "BLK": 4, "HIT": 18, "FOW": 114, "FOL": 78, "FO%": 59.4, "Tm_y": "TOR", "Salary": 12000000.0, "Cap Hit": 11000000.0, "Salary Per Point Share": 8571428.571428573}, {"Rk": 696, "Player": "Jacob Trouba", "Age": 26, "Tm_x": "NYR", "Pos": "D", "GP": 11, "G": 0, "A": 2, "PTS": 2, "+/-": 2, "PIM": 8, "PS": 0.7, "EV": 0, "PP": 0, "SH": 0, "GW": 0, "EV.1": 2, "PP.1": 0, "SH.1": 0, "S": 19, "S%": 0.0, "TOI": 248, "ATOI": "22:31", "BLK": 25, "HIT": 38, "FOW": 0, "FOL": 0, "FO%": null, "Tm_y": "NYR", "Salary": 10000000.0, "Cap Hit": 8000000.0, "Salary Per Point Share": 14285714.285714287}]}}, {"mode": "vega-lite"});
+</script>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+<div id="altair-viz-d04917a36ace4325b0153fc35ad4b378"></div>
+<script type="text/javascript">
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-d04917a36ace4325b0153fc35ad4b378") {
+      outputDiv = document.getElementById("altair-viz-d04917a36ace4325b0153fc35ad4b378");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.8.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function loadScript(lib) {
+      return new Promise(function(resolve, reject) {
+        var s = document.createElement('script');
+        s.src = paths[lib];
+        s.async = true;
+        s.onload = () => resolve(paths[lib]);
+        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+        document.getElementsByTagName("head")[0].appendChild(s);
+      });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else if (typeof vegaEmbed === "function") {
+      displayChart(vegaEmbed);
+    } else {
+      loadScript("vega")
+        .then(() => loadScript("vega-lite"))
+        .then(() => loadScript("vega-embed"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-68da547cd4a1dd6008ebcf1e7e014777"}, "mark": "bar", "encoding": {"x": {"type": "nominal", "axis": {"title": "Team"}, "field": "Tm_x", "sort": {"field": "Salary Per Point Share", "order": "descending"}}, "y": {"type": "quantitative", "field": "Salary Per Point Share"}}, "height": 500, "width": 500, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-68da547cd4a1dd6008ebcf1e7e014777": [{"Tm_x": "CHI", "Salary": 7000000.0, "Salary Per Point Share": 3684210.5263157897, "G": 6, "A": 11}, {"Tm_x": "EDM", "Salary": 23000000.0, "Salary Per Point Share": 7479166.666666667, "G": 17, "A": 35}, {"Tm_x": "LAK", "Salary": 18000000.0, "Salary Per Point Share": 14047619.047619049, "G": 6, "A": 17}, {"Tm_x": "NYR", "Salary": 23000000.0, "Salary Per Point Share": 21507936.507936507, "G": 5, "A": 12}, {"Tm_x": "TOR", "Salary": 27900000.0, "Salary Per Point Share": 15196428.571428573, "G": 16, "A": 11}]}}, {"mode": "vega-lite"});
+</script>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Summary">Summary<a class="anchor-link" href="#Summary"> </a></h1><p>We took a look at a couple of different statistics to measure player performance and impact based on their current salary</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="pdholakia98/DholakiaSportsAnalytics"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/fastpages/jupyter/sports/nhl/data/analytics/hockey/2021/02/15/NHL-Instagram-Analysis.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>This blog is an endeavor to answer the questions around our favorite athletes. Do their numbers match up to their efforts?</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://twitter.com/ParthDholakia5" title="ParthDholakia5"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
